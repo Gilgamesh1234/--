@@ -75,11 +75,17 @@ for loop = 1 : loopnumber
     fclose('all');
     
     for i = 1 : selectnumber/2 % replacement operation
-        if currentpotbarr(sequence(2*i-1))>currentpotbarr(sequence(2*i))
+        if currentpotbarr(sequence(2*i-1))>MB(i).potbarr
             num_replaced = sequence(2*i-1);
-        else
+            replacement = 1;
+        else if currentpotbarr(sequence(2*i))>MB(i).potbarr
             num_replaced = sequence(2*i);
+            replacement = 1;
+            else replacement = 0;
+            end
         end
+        
+        if replacement == 1
         P{num_replaced} = MB(i).junction; % replacement
         
         logpotbarr(loop,num_replaced) = MB(i).potbarr;
@@ -104,6 +110,8 @@ for loop = 1 : loopnumber
             saveas(Image,Imagename);
             close all;
         end
+        end
+        
     end
     
     

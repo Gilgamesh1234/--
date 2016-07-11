@@ -1,5 +1,5 @@
 function M = genemutant_740_740(C)
-p = 0.001; % 변이 임계 확률
+p = 0.01; % 변이 임계 확률
 pixels = 2;
 [row,col] = size(C);
 d = 170/row; % 작은 전극 하나의 길이, 단위 um
